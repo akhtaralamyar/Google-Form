@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <h1 style="color: blue; font-family: monospace; align:center; background: green; padding-left:50%; border-type: solid; border-size: 22px" >
+      Google
+    </h1>
+    <form style="background: gray; padding-left: 50%;">
+      <p> Please Choose your favourite Dish</p>
+      <label for="options"> Potato Crispy
+        <input id="options" type="radio" name="dishes">
+      </label>
+      <label>French Fries
+        <input type="radio" name="dishes">
+      </label>
+      <p> Choose a player <p>
+      <label>Ronaldo
+        <input type="radio" name="players">
+      </label>
+      <label>Messi
+        <input type="radio" name="players">
+      </label>
+      <p>Which of these is true about you</p>
+      <label>Sport Lover
+        <input type="checkbox" name="you">
+      </label>
+      <label>Food Lover
+        <input type="checkbox" name="you">
+      </label>
+      <label>Science Lover
+        <input type="checkbox" name="you">
+      </label><br>
+      <label>French Fries
+        <input type="inputbox" placeholder="your email" name="dishes">
+      </label><br>
+      <button type:submit;>Submit
+        
+      </button>
+      
+        
+    </form>
+  </body> 
+</html>
