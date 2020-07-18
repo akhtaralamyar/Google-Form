@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Scissors Paper</title>
+</head>
+<body>
+    <div align = center>
+        <label for="result">Player Vs CPU Score</label><br>
+        <label id="result"></label>
+        <!--<result name="" id="result" placeholder = Result cols="50" rows="20"></result> -->
+    </div><br><br>
+    
+    <div align = center>
+        <label for="">Choose Your Choice: </label>
+        <button id= "rock">Rock</button>
+        <button id= "scissors">Scissors</button>
+        <button id= "paper">Paper</button>
+    </div>
+    
+    <script>
+        function computerPlay(){
+            let rps=['Rock','Paper','Scissors']
+            return rps[Math.floor(Math.random()* rps.length)];
+        }
+        
+        function rockScissorsPaper(playerSelection="Rock",computerSelection = computerPlay) 
+		{
+			
+			let plower = playerSelection.toLowerCase();
+			let clower = computerSelection().toLowerCase();
+			if (plower == clower) 
+			{
+				return "Tied! " + (plower.charAt(0).toUpperCase()) + (plower.slice(1)) + " and " + (clower.charAt(0).toUpperCase()) + (clower.slice(1)) + " are equal.";
+			}  
+			else if (plower == "rock" && clower == "scissors" || plower == "scissors" && clower == "paper" || plower == "paper" && clower == "rock") 
+			{
+				return "You Win! " + plower.charAt(0).toUpperCase() + plower.slice(1) + " beats " + clower.charAt(0).toUpperCase() + clower.slice(1);
+			} 
+			else if(clower == "rock" && plower == "scissors" || clower == "scissors" && plower == "paper" || clower == "paper" && plower == "rock") 
+			{
+				return "You Lose! " + clower.charAt(0).toUpperCase() + clower.slice(1) + " beats " + plower.charAt(0).toUpperCase() + plower.slice(1)
+			}
+
+			else
+			{
+				return "Wrong input! you should only enter 'Rock' 'Paper' or 'Scissors'";
+			}
+        }
+
+        let playRock = rockScissorsPaper("rock");
+        let playScissors = rockScissorsPaper("scissors");
+        let playPaper = rockScissorsPaper("paper")
+        
+        let btnRock = document.querySelector('#rock');
+        let btnScissors = document.querySelector('#scissors');
+        let btnPaper = document.querySelector("#paper");
+
+        let result = document.querySelector('#result')
+        result.scrollTop;
+
+        let playerScore = 0;
+        let computerScore = 0;
+
+        function winLose(score){
+            if (score.includes("Win")) {
+ 				playerScore += 1;
+ 			}
+ 			else if(score.includes("Lose")){
+ 				computerScore += 1;
+ 			 }	
+ 			else { }
+        }
+
+        function winning(){
+            if(playerScore == 5){
+                playerScore = 0;
+                computerScore = 0;
+               result.innerHTML = "";
+               alert("Congratulation!  You Won")
+            }
+            else if (computerScore == 5) {
+                playerScore = 0;
+                computerScore = 0;
+                result.innerHTML = ""
+                alert("You lose! Better luck next time")
+            }
+            else return;
+        }
+
+        btnRock.addEventListener("click",function(){result.innerHTML += playRock + "<br>";
+            winLose(playRock);
+            result.innerHTML += "Player: " + playerScore + "  -- Computer: " + computerScore + "<br>";
+            winning();
+            playRock = rockScissorsPaper("rock")});
+        btnScissors.addEventListener("click",function(){result.innerHTML += playScissors + "<br>";   
+            winLose(playScissors);
+            result.innerHTML += "Player: " + playerScore + "  -- Computer: " + computerScore + "<br>"
+            winning();
+            playScissors = rockScissorsPaper("scissors")});
+        btnPaper.addEventListener("click",function(){result.innerHTML += playPaper + "<br>";  
+            winLose(playPaper);
+            result.innerHTML += "Player: " + playerScore + "  -- Computer: " + computerScore + "<br>"
+            winning();
+            playPaper = rockScissorsPaper("paper")});
+       
+    </script>
+
+
+
+	
+</body>
+</html>
